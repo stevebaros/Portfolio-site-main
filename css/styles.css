@@ -1,0 +1,248 @@
+:root {
+  --primary-color: #D3DEDC;
+  --secondary-color: #92A9BD;
+  --dark-grey: #7C99AC;
+}
+
+/* colors #D3DEDC
+#92A9BD
+#7C99AC
+#FFEFEF
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'bebas neue', cursive;
+  font-weight: 400
+}
+
+body {
+  background-color: var(--primary-color)
+}
+
+header {
+  border: 5px solid #FFEFEF;
+}
+
+h1 {
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.profile {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.page-header__item {
+  flex: 0 1 200px;
+}
+
+.page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.navigation-list {
+  list-style-type: none;
+}
+
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.profile_portrait {
+  float: left;
+  max-width: 400px;
+  max-height: 400px;
+  margin-right: 50px;
+  border-radius: 50%;
+}
+
+a {
+  color: black
+}
+
+a:visited {
+  /* visited link */
+  color: #7C99AC;
+}
+
+a:hover, a:focus {
+  text-decoration: none
+}
+
+a:active {
+  /* selected link */
+  color: #006778;
+}
+
+.div2 {
+  text-align: center;
+}
+
+button {
+  border: none;
+  font-family: inherit;
+  background-color: #FFEFEF;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.button__secondary {
+  background-color: #00AFC1;
+  color: #2b2b2b;
+}
+
+button:hover, button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+
+p {
+  background-color: rgba(39, 245, 232, 0.8);
+  display: inline;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px;
+  grid-gap: 20px;
+}
+
+.grid__item {
+  background-color: #7C99AC;
+  padding: 5px;
+}
+
+/* start grid fallback */
+.grid__item {
+  display: inline-block;
+  width: 33%;
+}
+
+/* end grid fallback */
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin: 0;
+  }
+
+  .grid__item {
+    background-color: #7C99AC;
+    width: auto;
+    min-height: auto;
+    margin: 0;
+  }
+
+  .grid__item:last-child {
+    grid-column: 3 / 3;
+    grid-row: 1 / 3;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 501px) and (max-width: 750px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+.button, button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the button */
+  background-color: #357b70;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition-duration: 0.2s;
+  transition-property: opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+.button, button {
+  /* overwrites browser defaults */
+  /* resets the border */
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: #00AFC1;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.2s opacity;
+}
+@keyframes color-change {
+  0% {
+    fill: #edc655;
+  }
+  50% {
+    fill: #fcffad;
+  }
+  100% {
+    fill: #f76414;
+  }
+}
+.sun {
+  animation-duration: 4s;
+  animation-name: color-change;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
